@@ -286,9 +286,9 @@ install_plugins() {
 write_zshenv() {
   header "Generando archivos de configuracion"
   cat > "$HOME/.zshenv" << 'ZSHEOF'
-. "$HOME/.cargo/env"
+[[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 ZSHEOF
-  ok "~/.zshenv generado (cargo env)"
+  ok "~/.zshenv generado (cargo env condicional)"
 }
 
 write_zshrc() {
